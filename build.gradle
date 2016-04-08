@@ -1,0 +1,51 @@
+/*
+ * Copyright 2016 Taosha
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+allprojects {
+    group 'org.taosha'
+    version '1.0'
+
+    repositories {
+        maven { url 'http://maven.taosha.org' }
+        jcenter()
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+afterEvaluate {
+    [
+            project(':nit'),
+            project(':nit-processor')
+    ].each { p ->
+        afterEvaluate {
+            rootProject.uploadArchives.dependsOn p.uploadArchives
+        }
+    }
+    uploadArchives.dependsOn configRepo
+}
+
+task('configRepo') << {
+    if (!project.ext.has('repo.url'))
+        project.ext['repo.url'] = System.console().readLine("\nPlease enter repository url: ").trim()
+
+    if (!project.ext.has('repo.user'))
+        project.ext['repo.user'] = System.console().readLine("\nPlease enter username, leave empty if no need: ").trim()
+
+    if (!project.ext.has('repo.pass'))
+        project.ext['repo.pass'] = System.console().readPassword("\nPlease enter password , leave empty if no need: ").toString()
+}
