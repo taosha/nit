@@ -15,5 +15,5 @@
  */
 
 rootProject.name = 'nit-project'
-include ':nit', ':nit-processor', ':example'
+include ':nit', ':example'
 

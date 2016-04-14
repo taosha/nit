@@ -14,9 +14,21 @@
  * limitations under the License.
  */
 
-package org.taosha.nit;
+package org.taosha.nit.internal;
 
-import javax.annotation.processing.*;
+import org.taosha.nit.Service;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Set;
+
+import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.Filer;
+import javax.annotation.processing.ProcessingEnvironment;
+import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
@@ -24,10 +36,6 @@ import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
-import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
-import java.util.Set;
 
 /**
  * Created by San on 4/6/16.

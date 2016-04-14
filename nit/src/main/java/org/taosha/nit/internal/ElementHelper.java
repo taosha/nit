@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-package org.taosha.nit;
+package org.taosha.nit.internal;
 
-import javax.lang.model.element.*;
-import javax.lang.model.type.TypeMirror;
 import java.lang.annotation.Annotation;
 import java.util.Map;
+
+import javax.lang.model.element.AnnotationMirror;
+import javax.lang.model.element.AnnotationValue;
+import javax.lang.model.element.Element;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.TypeMirror;
 
 /**
  * Created by San on 4/6/16.

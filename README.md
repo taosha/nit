@@ -23,7 +23,6 @@ repositories {
 }
 
 dependencies {
-    compile 'org.taosha:nit:1.0'
-    provided 'org.taosha:nit-processor:1.0'
+    provided 'org.taosha:nit:1.1'
 }
 ```

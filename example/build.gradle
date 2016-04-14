@@ -31,9 +31,7 @@ sourceSets {
 
 dependencies {
 
-//    compile 'org.taosha:nit:1.0'
-//    provided 'org.taosha:nit-processor:1.0'
+//    provided 'org.taosha:nit:1.1'
 
-    compile project(':nit')
-    provided project(':nit-processor')
+    provided project(':nit')
 }
