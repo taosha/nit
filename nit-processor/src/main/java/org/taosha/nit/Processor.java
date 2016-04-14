@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.taosha.service;
+package org.taosha.nit;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
@@ -33,7 +33,7 @@ import java.util.Set;
  * Created by San on 4/6/16.
  */
 @Service(javax.annotation.processing.Processor.class)
-@SupportedAnnotationTypes("org.taosha.service.Service")
+@SupportedAnnotationTypes("org.taosha.nit.Service")
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class Processor extends AbstractProcessor {
 
@@ -60,7 +60,7 @@ public class Processor extends AbstractProcessor {
         TypeElement service = (TypeElement) types.asElement(ElementHelper.getAnnotationFieldValue(e, Service.class, "value"));
 
         if (!ElementHelper.isSubtypeOf(e, service)) {
-            throw new IllegalArgumentException(String.format("%1$s is not an implementation(subtype) of service %2$s", e, service));
+            throw new IllegalArgumentException(String.format("%1$s is not an implementation(subtype) of nit %2$s", e, service));
         }
 
         try {
@@ -75,7 +75,7 @@ public class Processor extends AbstractProcessor {
             }
             mv(file, new File(file.getParentFile(), "META-INF"));
         } catch (IOException ex) {
-            throw new RuntimeException("Failed to generate service declaration file " + service, ex);
+            throw new RuntimeException("Failed to generate nit declaration file " + service, ex);
         }
     }
 

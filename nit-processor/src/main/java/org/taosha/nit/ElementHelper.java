@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.taosha.service;
+package org.taosha.nit;
 
 import javax.lang.model.element.*;
 import javax.lang.model.type.TypeMirror;
