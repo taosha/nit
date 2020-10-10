@@ -1,3 +1,7 @@
+**Deprecated** please go to https://github.com/google/auto/tree/master/service
+
+------------------------------------------------------------------------------
+
 This library helps you create service provider declaration file under the `META-INF/services` directory. By adding a `@Servcie` annotation onto your service implementation class, you will have the service provider declaration file generated at compile time.
 
 The below code sample declares a `GreetingService` implementation.
